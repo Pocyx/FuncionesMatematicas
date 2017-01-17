@@ -13,19 +13,7 @@ import static java.lang.Byte.MIN_VALUE;
  * @author PocyxDesigner
  */
 public class Arrays1 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        int[] y = {1,2,3,4,5};
-        System.out.print(mediaArrayInt(y));
-        //
-        int n =2;
-        System.out.println(rotaDerechaArrayInt(n,y));
-    }
-    
-    
+ 
     /**
      * 
      * Genera un array de tamaño n con números aleatorios
