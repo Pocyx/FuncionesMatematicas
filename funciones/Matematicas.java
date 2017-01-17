@@ -82,15 +82,14 @@ public class Matematicas {
      */
     public static int siguientePrimo(int n){
         int num=n+1;
-        boolean primo = true;
         do{
-            for(int p=2;p<=Math.sqrt(num);p++){
-                if(num%p==0 ){
-                    num++;
-                }    
+            if(esPrimo(num)){
+                return num;
+            }else if(!esPrimo(num)){
+                num++;
             }
-        }while(!primo);
-        return num;
+        }while(true);
+       
     }
     
     /**
