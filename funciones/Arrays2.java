@@ -56,7 +56,7 @@ public class Arrays2 {
      * 
      * @param columna
      * @param arrayBi
-     * @return Devuelve la columna j-ésima del array que se
+     * @return Devuelve la columna e-ésima del array que se
                pasa como parámetro.
      */
     public static int[] columnaDeArrayBiInt(int columna, int[][] arrayBi){
@@ -68,5 +68,32 @@ public class Arrays2 {
             }
         }
         return arrayColumna;
+    }
+    
+    public static int[][] coordenadasEnArrayBiInt(int n, int[][] arrayBi){
+        //define un array de 10 posiciones
+        int [][] array = new int[10];
+        //Entramos en cada posición del array.
+        for(int i=0;i<array.length;i++){
+            //Definimos una variable boolean para saber si esta repetido o no.
+            boolean repetido;
+            //Definimos la variable que será un número aleatorio entre 1-10.
+            int aleatorio=0;
+            do{
+                repetido = false;
+                aleatorio = (int) ((Math.random()*10)+1);
+                System.out.println("aleatorio antes del for: "+aleatorio+" ");
+                for(int e=0;e<i;e++){
+                    System.out.print("array["+e+"]= "+array[e]+" ");
+                    if(array[e]==aleatorio){
+                        repetido = true;
+                    }
+                }
+                
+            }while(repetido);
+            array[i]=aleatorio;
+            System.out.print("aleatorio no repetido: "+aleatorio+" ");
+             
+        }
     }
 }
