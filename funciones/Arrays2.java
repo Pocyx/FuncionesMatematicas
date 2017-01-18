@@ -70,30 +70,46 @@ public class Arrays2 {
         return arrayColumna;
     }
     
-    public static int[][] coordenadasEnArrayBiInt(int n, int[][] arrayBi){
+    /**
+     * 
+     * @param n número a comprobar en el array.
+     * @param array
+     * @return Devuelve la fila y la columna (en un array
+               con dos elementos) de la primera ocurrencia de un número dentro de un
+               array bidimensional. Si el número no se encuentra en el array, la función
+               devuelve el array {-1, -1}.
+     */
+    public static int[][] coordenadasEnArrayBiInt(int n, int[][] array){
         //define un array de 10 posiciones
-        int [][] array = new int[10];
+        int [][] coordenadas = new int[1][1];
+        //Definimos una variable boolean para saber si esta repetido o no.
+        boolean repetido=false;
         //Entramos en cada posición del array.
         for(int i=0;i<array.length;i++){
-            //Definimos una variable boolean para saber si esta repetido o no.
-            boolean repetido;
+            
             //Definimos la variable que será un número aleatorio entre 1-10.
             int aleatorio=0;
             do{
                 repetido = false;
-                aleatorio = (int) ((Math.random()*10)+1);
-                System.out.println("aleatorio antes del for: "+aleatorio+" ");
                 for(int e=0;e<i;e++){
                     System.out.print("array["+e+"]= "+array[e]+" ");
-                    if(array[e]==aleatorio){
+                    if(array[i][e]==aleatorio){
                         repetido = true;
+                        coordenadas[0][1]=i;
+                        coordenadas[1][0]=e;
+                        break;
                     }
                 }
                 
-            }while(repetido);
-            array[i]=aleatorio;
-            System.out.print("aleatorio no repetido: "+aleatorio+" ");
+            }while(true);
+      
              
         }
+        if(!repetido){
+            coordenadas[0][1]=-1;
+            coordenadas[1][0]=-1;
+            return coordenadas;
+        }
+        return coordenadas;
     }
 }
