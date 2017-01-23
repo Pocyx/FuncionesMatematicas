@@ -32,8 +32,8 @@ public class Funciones {
         System.out.println("juntaNumeros "+Matematicas.juntaNumeros(12345, 24946));
         //Arays1//
         System.out.println();
-        System.out.println("Funciones de array\n");
-        int n = 5;//tamaño de array
+        System.out.println("Funciones de array1\n");
+        int n = 7;//tamaño de array
         int[] arrayUno = Arrays1.generaArrayInt(n, 1, 10);
         System.out.print("generaArrayInt ");
         for(int i=0;i<n;i++){
@@ -52,11 +52,61 @@ public class Funciones {
         }
         System.out.println();
         System.out.print("rotaDerechaArrayInt ");
-        int[] arrayTres = Arrays1.rotaDerechaArrayInt(2, arrayDos);
+        int[] arrayTres = Arrays1.rotaDerechaArrayInt(3, arrayDos);
         for(int i=0;i<n;i++){
             System.out.print(arrayTres[i]+", ");
+        }
+        System.out.println();
+
+        System.out.print("rotaIzquierdaArrayInt ");
+        int[] arrayCuatro = Arrays1.rotaIzquierdaArrayInt(3, arrayDos);
+        for(int i=0;i<n;i++){
+            System.out.print(arrayCuatro[i]+", ");
+        }
+        System.out.println();
+        
+        System.out.println("\nFunciones de array2\n");
+        int[][] arrayBiUno = Arrays2.generaArrayBiInt(10, 10, 100, 200);
+        System.out.print("generaArrayBiInt \n");
+        for(int i=0;i<arrayBiUno.length;i++){
+            for(int e=0;e<arrayBiUno[i].length;e++){
+                System.out.print(arrayBiUno[i][e]+", ");
+            }
+            System.out.println();
+        }
+        System.out.print("filaDeArrayBiInt \n");
+        int[] fila = Arrays2.filaDeArrayBiInt(3, arrayBiUno);
+        for(int i=0;i<arrayBiUno[0].length;i++){
+            System.out.print(fila[i]+", ");
+        }
+        System.out.println();
+        
+        System.out.print("columnaDeArrayBiInt \n");
+        int[] columna = Arrays2.columnaDeArrayBiInt(3, arrayBiUno);
+        for(int i=0;i<arrayBiUno.length;i++){
+            System.out.print(columna[i]+", ");
+        }
+        System.out.println();
+        
+        System.out.print("coordenadasDeArrayBiInt \n");
+        int[] coordenadas = Arrays2.coordenadasEnArrayBiInt(130, arrayBiUno);
+        for(int i=0;i<coordenadas.length;i++){
+            System.out.print(coordenadas[i]+", ");
+        }
+        System.out.println();
+        
+        System.out.print("esPuntoDeSilla \n");
+        System.out.println(Arrays2.esPuntoDeSilla(130, arrayBiUno));
+        
+        System.out.println();
+        
+        System.out.print("diagonal \n");
+        int[] diagonal = Arrays2.diagonal(1, 2, "neso", arrayBiUno);
+        for(int i=0;i<diagonal.length;i++){
+            System.out.print(diagonal[i]+", ");
         }
         System.out.println();
     }
     
 }
+

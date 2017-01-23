@@ -27,7 +27,7 @@ public class Arrays1 {
     public static int[] generaArrayInt(int n, int min, int max){
         int[] array = new int [n];
         for(int i=0;i<array.length;i++){
-            array[i]= (int) (Math.random()*max)+min;
+            array[i]= (int) (Math.random()*(max-min))+min;
         }
         return array;
     }
@@ -148,13 +148,32 @@ public class Arrays1 {
         for(int i=0;i<array.length;i++){
             if(i==0){
                 rotado[i] = array[array.length-n];
-                }else if (i<array.length-n-i){
-                    rotado[i] = array[array.length-n+i];
-                }else if (i>=n && i<array.length){
-                    rotado[i] = array[m++];
-                }else if(i==array.length-1){
-                    rotado[i] = array[e++];
-                }   
+            }else if (i<array.length-n-i){
+                rotado[i] = array[array.length-n+i];
+            }else if (i>=n && i<array.length){
+                rotado[i] = array[m++];
+            }else if(i==array.length-1){
+                rotado[i] = array[e++];
+            }else if(i==n-1){
+                rotado[i]=array[array.length-1];
+            }  
+        }                
+        return rotado;
+
+    }
+    
+    public static int[] rotaIzquierdaArrayInt(int n, int[] array){
+        int[] rotado=new int[array.length];
+        int e = n+1;
+        int m = 0;
+        for(int i=0;i<array.length;i++){
+            if(i==0){
+                rotado[i] = array[n];
+            }else if(i>0 && i<array.length-n){
+                rotado[i] = array[e++];
+            }else if(i>=array.length-n && i<array.length){
+                rotado[i] = array[m++];
+            }  
         }                
         return rotado;
 
