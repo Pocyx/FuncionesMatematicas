@@ -13,13 +13,61 @@ package funciones;
  * @author PocyxDesigner
  */
 public class Matematicas {
+    
+    
+    
+    public static boolean esCapicua2(int n){
+        int cont = digitos(n)/2;
+        boolean capicua = false;
+        for(int i=0;i<cont;i++){
+            if(digitoN(n,i)==digitoN(voltea(n),i)){
+                capicua=true;
+            }
+        }
+        return capicua;
+    }
+    
+    
+
+    /**
+     * Devuelve verdadero si el nÃºmero que se pasa como parÃ¡metro es capicÃºa y
+       falso en caso contrario.
+     * <p>
+     * Un nÃºmero capicÃºa es el que se lee igual de izquierda a derecha que de
+     * derecha a izquierda.
+     * 
+     * @param x nÃºmero del que se quiere saber si es capicÃºa
+     * @return  verdadero si el nÃºmero que se pasa como parÃ¡metro es capicÃºa y
+     *          falso en caso contrario
+     */
+    public static boolean esCapicua(long x) {
+      return x == voltea(x);
+    }
+
+    /**
+     * Devuelve verdadero si el nÃºmero que se pasa como parÃ¡metro es capicÃºa y
+     * falso en caso contrario.
+     * <p>
+     * Un nÃºmero capicÃºa es el que se lee igual de izquierda a derecha que de
+     * derecha a izquierda.
+     *
+     * @param x nÃºmero del que se quiere saber si es capicÃºa
+     * @return  verdadero si el nÃºmero que se pasa como parÃ¡metro es capicÃºa y
+     *          falso en caso contrario
+     */
+    public static boolean esCapicua(int x) {
+      return esCapicua((long)x);
+    }
+
+    
+    
     /**
      * Devuelve verdadero si el número que se pasa como parámetro
        es capicúa y falso en caso contrario.
      * @param n Número introducido, maximo de cinco cifras.
      * @return true si es capicua
      */
-    public static boolean esCapicua(int n){
+    public static boolean esCapicuaF(int n){
         boolean capicua = false;
 
         // número de una cifra
@@ -111,8 +159,8 @@ public class Matematicas {
      * @param n
      * @return contador, número de cifras que tiene n.
      */
-    public static int digitos(int n){
-        int numero = n;
+    public static int digitos(long n){
+        long numero = n;
         int contador = 0;
         do{
             numero = numero/10;
@@ -125,13 +173,13 @@ public class Matematicas {
      * Le da la vuelta a un número.
      * @param n 
      */
-    public static int voltea(int n){
-        int numero = n;
-        int cifra = numero%10;
-        int volteado=cifra;
+    public static long voltea(long n){
+        long numero = n;
+        long cifra = numero%10;
+        long volteado=cifra;
         for(int i=1;i<digitos(n);i++){
             numero = numero/10;
-            cifra = numero%10;
+            cifra = (int)numero%10;
             volteado = Integer.valueOf(String.valueOf(volteado) + String.valueOf(cifra));
         }
         return volteado;
@@ -144,15 +192,15 @@ public class Matematicas {
      * @param posicion
      * @return n, digito en la posicion indicada
      */
-    public static int digitoN(int numero, int posicion){
+    public static int digitoN(long numero, int posicion){
         int n=0;
         numero = voltea(numero);
         if(posicion==1){
-            n=numero%10;
+            n=(int)numero%10;
         }
         for(int i=1;i<posicion;i++){
             numero=numero/10;
-            n=numero%10;
+            n=(int)numero%10;
         }
         
         return n;
@@ -165,7 +213,7 @@ public class Matematicas {
      * @param digito
      * @return La posicion del digito indicado.
      */
-    public static int posicionDeDigito(int numero, int digito){
+    public static int posicionDeDigito(long numero, int digito){
         int posicion=1;
         int n=0;
         boolean esta = false;
@@ -175,7 +223,7 @@ public class Matematicas {
         }
         do{
             numero=numero/10;
-            n=numero%10;
+            n=(int)numero%10;
             posicion++;
             if(n==digito){
                 esta=true;
@@ -212,13 +260,13 @@ public class Matematicas {
      * @param cantidad
      * @return numero
      */
-    public static int quitaPorDelante(int numero, int cantidad){
+    public static long quitaPorDelante(long numero, int cantidad){
         int n=0;
         numero = voltea(numero);
 
         for(int i=0;i<cantidad;i++){
             numero=numero/10;
-            n=numero%10;
+            n=(int)numero%10;
         }
         return voltea(numero);
     }
@@ -255,7 +303,7 @@ public class Matematicas {
      * @param fin
      * @return 
      */
-    public static int trozoDeNumero(int numero, int inicio, int fin){
+    public static long trozoDeNumero(int numero, int inicio, int fin){
         int cantidad = digitos(numero);
         int cifra=0;
         for(int i=0;i<cantidad;i++){
@@ -273,9 +321,9 @@ public class Matematicas {
      * @param numero2
      * @return pegado
      */
-    public static int juntaNumeros(int numero1, int numero2){
-        int pegado = numero1;
-        pegado = Integer.valueOf(String.valueOf(numero1) + String.valueOf(numero2));
+    public static long juntaNumeros(int numero1, int numero2){
+        long pegado = numero1;
+        pegado = Long.valueOf(String.valueOf(numero1) + String.valueOf(numero2));
         return pegado;
     }
 }
